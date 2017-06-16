@@ -1,0 +1,14 @@
+  .container{
+    padding: 15px 40px;
+  }
+  .error{
+    margin: 20px 0;
+    color: #bd0404;
+  }
+  .button_footer{
+    height: 90px;
+  }
+  .p_footer{
+    font-size: 26px;
+    line-height: 100px;
+  }

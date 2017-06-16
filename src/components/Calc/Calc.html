@@ -1,0 +1,50 @@
+<div>
+  <div class="error">
+    {{err}}
+  </div>
+
+  <div class="coefs">
+
+    <md-input-container v-for="el in coefs_list" :key="el.name">
+      <label>{{ el.name }}</label>
+      <md-input type="number" v-model="el.value" required min="0" step="0.1" v-if="el.type==='float'"></md-input>
+      <md-input type="number" v-model="el.value" required min="0" step="1" v-else></md-input>
+    </md-input-container>
+  </div>
+
+  <md-card md-with-hover v-for="dev in devs" :key="dev.id" class="card_margin">
+    <md-card-header>
+      <div class="md-title">Dev {{dev.id}}</div>
+    </md-card-header>
+
+    <md-card-content>
+      <md-input-container>
+        <label for="developer">Разработчик</label>
+        <md-select name="developer" id="developer" v-model="dev.name">
+          <md-option v-for="el in devs_list" v-bind:value="el.name" :key="dev.name">{{ el.name }}</md-option>
+        </md-select>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Часы</label>
+        <md-input type="number" v-model="dev.hours" step="1" required min="0"></md-input>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Коэффициент скорости</label>
+        <md-input type="number" v-model="dev.coef" step="0.1" required min="0"></md-input>
+      </md-input-container>
+    </md-card-content>
+
+    <md-card-actions>
+      <md-button @click.native="deleteCard(dev.id)">Delete</md-button>
+    </md-card-actions>
+  </md-card>
+  <div class="button_footer">
+    <md-button class="md-raised md-primary" @click.native="result()" style="margin-top: 36px;">Итог: {{itog}}</md-button>
+    <md-button class="md-fab md-fab-bottom-right" @click.native="addCard()">
+      <md-icon>add</md-icon>
+    </md-button>
+  </div>
+
+</div>

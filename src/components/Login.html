@@ -1,0 +1,17 @@
+<form v-on:submit.prevent="auth">
+  <div class="error">
+    {{err}}
+  </div>
+
+  <md-input-container>
+    <label>Email</label>
+    <md-input type="email" v-model="email" required></md-input>
+  </md-input-container>
+
+  <md-input-container>
+    <label>Пароль</label>
+    <md-input type="password" v-model="password" required></md-input>
+  </md-input-container>
+
+  <md-button class="md-raised md-primary" type="submit">Отправить</md-button>
+</form>
